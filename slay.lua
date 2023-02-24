@@ -1,6 +1,12 @@
 TeleportService = game:GetService("TeleportService")
 Players = game:GetService("Players")
 PlaceId, JobId = game.PlaceId, game.JobId
+local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport
+	local ontp = game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+		if State == Enum.TeleportState.Started then
+			local stringtp = loadstring(game:HttpGet('https://raw.githubusercontent.com/rgie2155/slay/main/slay.lua', true))()
+			queueteleport(stringtp)
+			end
 local cooldowns = game.Players.LocalPlayer.CooldownSlays
 	
 	
